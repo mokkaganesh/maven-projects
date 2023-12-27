@@ -1,0 +1,20 @@
+hibernet frsmework
+
+@Entity    ->entity class
+@TAble(name = 'book')
+
+
+for create coluns
+
+@Id
+@Column(name="book_id")
+@GeneratedValue(strategy=GenerationType.IDENTITY)id")
+
+
+
+
+
+src ->main-> newFolder 
+
+
+->update will do creation if not present table, otherwise updates in XML file

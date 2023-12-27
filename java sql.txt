@@ -1,0 +1,127 @@
+package prepareStatements;
+
+import java.sql.*;
+
+import com.mysql.cj.protocol.Resultset;
+public class State {
+	public static void main(String[] args)
+	{
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/state","root","@");
+			
+
+			
+			//create result set
+			String sql="select * from user";
+			PreparedStatement st=con.prepareStatement(sql);
+			ResultSet result=st.executeQuery();
+			while(result.next())
+			{
+				System.out.println("name "+result.getString("name"));
+				System.out.println("age "+result.getInt("age"));
+			}
+				
+//			int r=st.executeUpdate();
+//			if (r>0) {
+//				System.out.print("inserted Succesfully");
+//			}
+		}catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+
+}
+-----------------------------------------------------------------------------------------
+
+package prepareStatements;
+
+import java.sql.Connection;
+
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.*;
+
+public class Assignment1 {
+	public static void main(String[] args) throws SQLException, ClassNotFoundException
+	{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/details","root","@");
+		
+		
+		Statement stmt=con.createStatement();
+		
+		System.out.println("select 1)insert 2)delete 3)show");
+		int opt;
+		Scanner sc=new Scanner(System.in);
+		opt=sc.nextInt();
+		int i=1;
+		switch(opt)
+		{
+		case 1:
+			System.out.println("enter your name : ");
+			String name=sc.next();
+			String inSql="insert into student values("+i+++",'"+name+"','male','AIDS','KL'"+")";
+//			String inSql="insert into student (id,name,gender,branch,college) values(1,'ganesh','male','aids','kl')";
+			int r=stmt.executeUpdate(inSql);
+			if(r>0)
+			{
+				System.out.println("insertesd succesfully");
+			}
+			break;
+		case 2:
+			System.out.println("enter your roll no :");
+			int roll=sc.nextInt();
+			String delSql="delete from student where id="+roll;
+			int r1=stmt.executeUpdate(delSql);
+		
+			if(r1>0)
+			{
+				System.out.println("deleted Successfully ");
+				
+			}
+			break;
+			
+		case 3:
+			String SQL="select * from student";
+			ResultSet rs=stmt.executeQuery(SQL);
+			while(rs.next())
+			{
+				System.out.print(rs.getInt(1)+"   ");
+				System.out.print(rs.getString(2)+"  ");
+				System.out.print(rs.getNString(3)+"  ");
+				System.out.print(rs.getNString(4)+"  ");
+				System.out.println(rs.getNString(5)+"  ");
+			}
+			break;
+		}
+	}
+}
+-----------------------------------------------------------------------------------------------------------
+package prepareStatements;
+import java.util.*;
+import java.sql.*;
+public class AssignmentCallableStmt {
+	public static void  main(String[] args)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/details","root","@");
+			
+			CallableStatement st=con.prepareCall("{call insertR2(?,?,?,?,?)}");
+			st.setInt(1, 104);
+			st.setString(2, "Bhargav");
+			st.setString(3, "male");
+			st.setString(4,"BCA");
+			st.setString(5,"KL");
+			
+			
+		
+			int r=st.executeUpdate();
+			if(r>0)
+			{
+				System.out.println("inserted Successfully");
+			}

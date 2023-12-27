@@ -1,0 +1,284 @@
+hibernate is used for to connect the database where we are not using the sql commands;
+for these we need the configuration file :
+	to map the java class to the database
+	in these we storing the data based on the objec tof the class.
+	we require mappings to connect.
+
+confiuration file name called : hibernate.cfg.xml:
+
+in these all the properties are present :
+
+1)hibernate dialect : used to select the SQL
+2)hibernate.connection.driver_class ->to intialze the database(JDBC)
+3)hibernate.connection.url : url ot connect the db
+4)username :
+5)password :
+6)database name :
+7)pool_size : limit the connections to the DB
+8)autocommit : allows to auto commit the transaction.
+
+-------------------------------------------------------------------------------------
+HQL vs HcQl :
+
+
+
+hql is to perform both select and non select operation  ->hcql only performs the select the data
+
+2)hql is suitable for static queries -> dynamic queries
+
+3)doesn't support pagination ->does
+4)less time take for exec ->more
+5)no safe sql injection because of fixed queries -> it is safe for SQL injection beacuse it uses the Dynamic query generation
+----------------------------------------------------------------------------------------------
+2)hibernate curd : 
+
+1)create the srudent class  : 
+2)Student manager.java  : to handle the database : 
+proteced void setup(){
+
+protected SEssionFactory sessionFactory;
+final StandardServiceRegistry registry=new StandardServiceRegistryBuilder().configure("hiber.cfg.xml").build();
+try{
+sessionFActory factory=new MetaDataSource(registry).buildMetadata().buildSessionFactory();
+
+}
+catch{
+	StandarServiceRegistryBuilder.Destory();
+}
+
+}
+
+
+
+
+
+protected void create(){
+	Student s=new Student();
+	s.setName("ganesh");
+	s.setId(20);
+	
+
+Session session =sessionFactory.openSession();
+session.beginTransaction();
+session.save();
+session.getTransaction().commit();
+session.close();
+
+public void read(){
+	
+	int id=1;
+	Student s =session.get(Stident.class,id);
+Sop(s.getName());
+}
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+co4 :
+
+
+Spring framework : 
+_______________________
+ Spring curd : we will use the JDBCTemplate ;
+use DriverManagerDataSourse;
+
+
+
+public static void main(){
+DriverManagerDataSource ds=new DriverManagerDataSource();
+
+ds.url();
+ds.username();
+ds.password();
+
+String sql="insert into name values(?<?<?)";
+
+JdbcTempalte jt=new JdbsTemplate(ds);
+jt.update(sql,20,"ganesj",2");
+
+}
+
+
+
+to read the use will thw RowMapper DataSturutre : ->it will store the list of obects of the row in table 
+
+
+String sql="select * from employee";
+RowMapper<emp>e= new RowMapper<emp>(){
+
+public emp mapRow(ResultSet rs,int id) throws SQLException {
+int id= rs.getInt("id");
+String name=rs.getString("name");
+return new Emp(id,name);
+
+}
+};
+
+List<emp> lb =jt.query(sql,e);
+for(emp i: lb){
+sop(i);}
+
+
+
+
+
+
+________________________________________________________________________________________________
+Dependency Injection : 
+-----------------------
+
+to convert the tightly coupled application to losely coupled application .
+tightly coupled we need to create the object for evry time  -> to make loosel ->use Dependecy Injection 
+
+2 types : beanFactory & ApplicaionContext
+
+
+
+Ex : BeanFactory ->use for lagre Applications 
+
+Book.java 
+
+public inteface BOOk{
+public void read();
+
+}
+
+
+MLBOok :
+class MLBOOk implements BOOK{
+public void read(){
+sop("read the book " );
+}
+
+}
+
+
+DLBOok :
+class DLBOOk implements BOOK{
+public void read(){
+sop("read the book " );
+}
+
+}
+
+
+
+
+
+Demo.java 
+-------------------------------
+
+public static void main()
+{
+Resource r=new ClassPathResource("spring.xml);
+BeanFactory  factory =new XmlBeanFactory(r);
+
+Book b=(BOOk)factory.getBean("v");
+b.read();
+
+}
+
+public static void main()
+{
+ApplicationContext factory =new ClassPathXmlApplicationContext("spring.xml")
+;
+
+Book b=(BOOk)factory.getBean("v");
+b.read();
+
+}
+
+
+____________________________________________________________________________________________
+
+
+Spring Object Dependecy INjection : 
+
+to give the object s as a bean
+
+
+<bean id="a1" class="Address">
+
+<contructo-arg value="HYd"></contructor-arg>
+<contructo-arg value="Telangana"></contructor-arg>
+</bean>
+
+<bean id="v" class="Emplyess">
+<contructo-arg value="12"></contructor-arg>
+<contructo-arg value="ganesh"></contructor-arg>
+<contructo-arg><ref bean="a1"/></contructor-arg>
+</bean>
+
+
+Address classs
+Address in Employee calss
+
+_______________________________________________________________________________________________________________________________
+
+Spring MVC Curd : 
+-----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

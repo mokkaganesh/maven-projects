@@ -1,0 +1,31 @@
+web dynamic project->project name->tomcat
+->expand the folder 
+  ->web content 
+	->html 
+  ->java resources
+       ->src-> new create -> servlet->classname->next->next->select dopost
+
+
+
+->load mysql driver
+->get connection  ->establish physical connection
+->Queries or logical connection
+->
+  LOAD DRIVER :
+1)getconnection
+2)create statement   2.1)statement
+			   2.2)prepared statement
+			   2.3)callable statement
+
+3)insert
+  delete
+  update
+
+4)Read
+
+
+
+
+-- create database emp90;-- 
+use emp90;
+create table employeedate(id int,name varchar(30),salry double,dept varchar(30));

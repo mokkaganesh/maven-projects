@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function val()
+{
+var name = document.reg.un.value;
+var nameTest = name.match(/[a-zA-Z]/);
+if (nameTest == null ||name == ""){
+alert("Please enter only letters in this field.");
+return false;
+}
+var zip = document.reg.mob.value;
+var zipTest = zip.match(/[0-9]{10}/);
+if (zipTest==null||zip ==""){
+alert("Please enter 10 didgit numbers in this field.");
+return false;
+}
+var md=document.reg.md.value;
+var mid = md.match(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/);
+if (mid==null||md ==""){
+alert("Please enter vailid emailid.");
+return false;
+}
+return;
+}
+</script>
+</head>
+<body>
+<form action= "insert.jsp/servelet" name=reg onsubmit=val()>
+NAME:<br/>
+<input type="text" name="un"/><br/>
+<br/>
+MOBILE<input type="text" name="mob" /><br/>
+<br/>
+<br/>
+EMAIL<input type="text" name="md" /><br/>
+<br/>
+<input type="submit" value=submit />
+</form>
+
+</body>
+</html>

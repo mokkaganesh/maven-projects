@@ -1,0 +1,69 @@
+statement -> used to insert static or fixed data (query)
+prepared statement ->used to dynamic data (query)
+callable ->we can send direct data(no queries)
+         -> create a procedure , then delete -> delete from table where id=101
+
+Stament st=connection.createStatement();
+--> connection we have path;
+METHODS :
+
+-->executeUpdate -insert,delete,update
+-->executeQuery  -select
+
+
+
+PREPARE STATEMENT :
+insert into table(name,age)values(?,?)
+Statement psmt=con.preapreStatement(query);
+pstmt.setString(col1,"ganes");
+pstmt.setInt(col2,44);
+
+
+=>error:
+project name ->build path->libraries ->add jar file
+
+
+
+Question 1)12.5
+design an application to insert student details (id,name,branch,address);
+
+
+Question2 ) difference between servelt and JSP.
+		servelet life cycle.
+
+JDBC :
+	Statement,preparedStatemt,callableStatement
+
+
+
+
+
+
+
+1)tier architecture
+2)session tracking
+3)jsp/servlet
+
+
+Transactio process:
+-----------------------------
+1)read,write operations
+
+2)commit ->saves the data ,before it stores temp
+
+con.setAutoCommit(false);  ->default true changing to false.
+3)rollbacj ->go back to prevoius state if any failure
+
+
+
+
+
+
+----------------------------------------------------
+
+1)Load Driver
+2)connetcion to driver manager
+3)form a Query(SQL)
+4)create statement(callable,prepared,statement)
+5)executeUpdate()
+6)executeQuery()

@@ -1,0 +1,95 @@
+Spring : Architecutre
+dependency injection 
+
+
+application context  interface  ->it is a container to implement dependency.
+BEanfactoy      interface  ->it support for small 
+
+annotation based configuration
+mvc curd operations
+
+
+
+tightly / loosely coupled :
+
+---------------------------------
+ tightly coupled app : vechile is depening on car ,or one property is depending on another property.
+
+ex: class vechile    ->                                                    
+     car c =new car();
+c.driving();
+
+bike b=new bike();
+b.riding();
+
+if we want bike :
+ -> 
+
+
+ calss car  : public driving :sop(car moviing)              class bike      public riding :sop(bike riding)    
+
+
+loosley coupled : using depency injection we can make tightly coupled.
+
+_______________________________________________________________________________
+
+private class x:
+
+
+
+
+class y extends x:
+
+-->private means we cannot get access.For that we need the dependency ->then it will be tightly coupled.
+
+
+
+
+
+
+
+_____________________________________________________________________________________________
+public class insert{
+
+//statements for sql database.
+}
+
+
+DI(dependecy injection):
+if x-> y : if y changes x also chanegs ->make every thing independt ->using DI.
+
+
+
+
+
+----------------------------
+perspective ->JAVA EE
+new->maven->quickstart ->Aircraftid=springDi
+
+
+->create class vechile
+
+
+
+//if there are 1000 lines problem ->go for spring framework 
+		//how to inject these methods into class
+		//open maven repository
+		//enter spring ->select spring context 5.3.1
+		//->spring core => provide depency injection ,ioc 5.3.1
+		//go car.java 
+		//create intreface motors jaava and implements MOtors
+
+
+
+
+_________________________________________________________________________________________________________
+session 2:
+`````````````````````````````````````````````````````````````````````
+
+
+Beanfactory and application context is used for dependency injection.
+
+
+
+
+

@@ -1,0 +1,64 @@
+spring mvc: 
+
+servlet : create servlet class then client sends a request to server.
+
+spring mvc :
+
+we have controller (means in every class in servlet) ->login logout add sun mul
+
+when client sends the request goes to web.xml file -> for which request which controller we need 
+
+->each servlet is considered as one controller  convert to spring mvc;
+->all controller wil be handeled by fromt controller (this is dispatcher servlet )
+
+-> all the request goes to dispatcher servlet (by mapping in web.xml file)
+
+-> ok now request is for add , then we have call add controller ====> one issue which one to call not a superman.
+
+->means dispatcher servlet ->needs a config file we have mention which request goes to which controller.
+
+->with the help of @controller annotation.(every controller will have mapping) just doing give package name.
+
+->means that controller will give the lots of pages (web page).
+
+->first dispatcher servlet request the controller ->it will return the conroller send response to the dispatcher
+
+-> now we have 2 things data and view name;
+--------------------------------------------------------------------------------------
+
+
+
+code : 
+
+->first we have controllers
+
+->every page is a controller -> for that we need a request mapping to map the file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+add 3 depencies :
+pom.xml
+
+spring core 5.3.1
+
+spring contex 
+spring jdbc
+
+
+	DriverManagerDataSource ds=new DriverManagerDataSource();
+    	ds.setUrl("jdbc:mysql://localhost:3306/empdetails");
+    	ds.setUsername("root");
+    	ds.setPassword("");
+    	String sql="update emp set salary=? where id=?";
+    	JdbcTemplate jt=new JdbcTemplate(ds);
+    	int res=jt.update(sql,5260,3);
+    	if(res>0)
+    		System.out.println("Successfully inserted");
+    	
